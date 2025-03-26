@@ -65,23 +65,36 @@
         <p id="description">Loading...</p>
         <a href="https://apps.apple.com/mx/app/belmond/id1521833472" class="button">APPLE APP STORE</a>
         <a href="https://play.google.com/store/apps/details?id=com.guestu.belmondconnect&hl=es_MX" class="button">GOOGLE PLAY STORE</a>
-        <a href="https://wa.me/18449331135" class="button">CHAT WITH US</a>
+        <a href="https://wa.me/18449331135" class="button" id="chat-button">CHAT WITH US</a>
     </div>
     
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const translations = {
-                en: "Download and discover your own pocket concierge - a personal, digital guide to Belmond’s Wonderful World.",
-                es: "Descarga y descubre tu propio conserje digital: una guía personal del maravilloso mundo de Belmond.",
-                fr: "Téléchargez et découvrez votre propre concierge numérique - un guide personnel du monde merveilleux de Belmond.",
-                de: "Laden Sie Ihren persönlichen digitalen Concierge herunter und entdecken Sie die wunderbare Welt von Belmond.",
-                it: "Scarica e scopri il tuo concierge digitale personale - una guida al meraviglioso mondo di Belmond."
-            };
-    
-            const userLang = navigator.language.slice(0,2);
-            console.log("Idioma detectado:", userLang);
-            document.getElementById("description").innerText = translations[userLang] || translations.en;
-        });
+        const translations = {
+            en: {
+                description: "Download and discover your own pocket concierge - a personal, digital guide to Belmond’s Wonderful World.",
+                chat: "CHAT WITH US"
+            },
+            es: {
+                description: "Descarga y descubre tu propio conserje digital: una guía personal del maravilloso mundo de Belmond.",
+                chat: "CHATEA CON NOSOTROS"
+            },
+            fr: {
+                description: "Téléchargez et découvrez votre propre concierge numérique - un guide personnel du monde merveilleux de Belmond.",
+                chat: "DISCUTEZ AVEC NOUS"
+            },
+            de: {
+                description: "Laden Sie Ihren persönlichen digitalen Concierge herunter und entdecken Sie die wunderbare Welt von Belmond.",
+                chat: "CHATTE MIT UNS"
+            },
+            it: {
+                description: "Scarica e scopri il tuo concierge digitale personale - una guida al meraviglioso mondo di Belmond.",
+                chat: "CHATTA CON NOI"
+            }
+        };
+
+        const userLang = navigator.language.slice(0,2); // Detecta el idioma del navegador
+        document.getElementById("description").innerText = translations[userLang]?.description || translations.en.description;
+        document.getElementById("chat-button").innerText = translations[userLang]?.chat || translations.en.chat;
     </script>
 </body>
 </html>
