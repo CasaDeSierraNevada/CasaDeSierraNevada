@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa de Sierra Nevada</title>
+    <link rel="icon" type="image/png" href="emblem.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            background-color: #f9f8f3;
+            padding: 50px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .logo img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto 20px;
+        }
+        h1 {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        p {
+            font-size: 14px;
+            color: #666;
+        }
+        .button {
+            display: block;
+            width: 90%;
+            padding: 15px;
+            margin: 10px auto;
+            border: none;
+            border-radius: 25px;
+            background-color: #e0e0e0;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            color: black;
+            text-align: center;
+        }
+        .button:hover {
+            background-color: #d0d0d0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="emblem.jpg" alt="Casa de Sierra Nevada Logo">
+        </div>
+        <h1>Casa de Sierra Nevada<br>A Belmond Hotel</h1>
+        <p id="description">Loading...</p>
+        <a href="https://apps.apple.com/mx/app/belmond/id1521833472" class="button">APPLE APP STORE</a>
+        <a href="https://play.google.com/store/apps/details?id=com.guestu.belmondconnect&hl=es_MX" class="button">GOOGLE PLAY STORE</a>
+        <a href="https://wa.me/18449331135" class="button">CHAT WITH US</a>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const translations = {
+                en: "Download and discover your own pocket concierge - a personal, digital guide to Belmond’s Wonderful World.",
+                es: "Descarga y descubre tu propio conserje digital: una guía personal del maravilloso mundo de Belmond.",
+                fr: "Téléchargez et découvrez votre propre concierge numérique - un guide personnel du monde merveilleux de Belmond.",
+                de: "Laden Sie Ihren persönlichen digitalen Concierge herunter und entdecken Sie die wunderbare Welt von Belmond.",
+                it: "Scarica e scopri il tuo concierge digitale personale - una guida al meraviglioso mondo di Belmond."
+            };
+    
+            const userLang = navigator.language.slice(0,2);
+            console.log("Idioma detectado:", userLang);
+            document.getElementById("description").innerText = translations[userLang] || translations.en;
+        });
+    </script>
+</body>
+</html>
